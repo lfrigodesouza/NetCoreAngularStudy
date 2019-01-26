@@ -14,7 +14,6 @@ namespace DatingApp.API.Controllers
         public AuthController(IAuthRepository repo)
         {
             _repo = repo;
-
         }
 
         [HttpPost("register")]
