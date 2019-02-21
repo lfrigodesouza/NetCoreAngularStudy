@@ -47,6 +47,8 @@ namespace DatingApp.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+            throw new Exception("NO NO NO");
+
             var userFromRepo = await _repo.Login(userForLoginDto.UserName.ToLower(), userForLoginDto.Password);
             if (userFromRepo == null)
                 return Unauthorized();
@@ -67,7 +69,7 @@ namespace DatingApp.API.Controllers
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
             };
-            
+
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
